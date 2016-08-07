@@ -5,15 +5,8 @@ import json
 import argparse
 import datetime
 
-dirname = os.path.expanduser('~/.borednow')
-path_yak = dirname + '/yak.json'
-
-
-def show_help(msg='', code=1):
-    print 'YOU DID IT WRONG'
-    if (msg):
-        print msg
-    exit(code)
+dirname = os.path.expanduser('~/.yakstack')
+path_yak = dirname + '/yakstack.json'
 
 
 def ensure_files():
