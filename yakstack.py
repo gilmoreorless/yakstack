@@ -98,9 +98,10 @@ stack = get_yak_stack()
 if args.profile:
     switch_profile(stack, args.profile)
 
+if args.shave:
+    pop_yak_frame(stack)
+
 if args.message:
     add_yak_frame(stack, args.message)
-elif args.shave:
-    pop_yak_frame(stack)
 
 print_yaks(stack)
