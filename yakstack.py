@@ -59,11 +59,10 @@ def switch_profile(stack, profile):
     save_yak_stack(stack)
 
 
-def pop_yak_frame(stack):
+def pop_yak_frames(stack, count):
     substack = stack['profiles'][stack['cur_profile']]
-    if (len(substack)):
-        substack.pop()
-        save_yak_stack(stack)
+    del substack[-count:]
+    save_yak_stack(stack)
 
 
 def print_yak_frame_count(stack):
@@ -95,7 +94,7 @@ def print_yaks(stack):
 parser = argparse.ArgumentParser(description='Yak Stack! Stack your yaks.')
 parser.add_argument('item', nargs='*', default=[],
                     help='one or more items to add to the yak stack')
-parser.add_argument('-s', '--shave', action='store_true',
+parser.add_argument('-s', '--shave', action='count',
                     help='shave a yak; remove the most recent item from the stack')
 parser.add_argument('-p', '--profile',
                     help='switch to a different profile to use a different stack')
@@ -106,8 +105,8 @@ stack = get_yak_stack()
 if args.profile:
     switch_profile(stack, args.profile)
 
-if args.shave:
-    pop_yak_frame(stack)
+if args.shave > 0:
+    pop_yak_frames(stack, args.shave)
 
 if args.item:
     add_yak_frames(stack, args.item)
