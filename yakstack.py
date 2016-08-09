@@ -67,12 +67,13 @@ def pop_yak_frame(stack):
 
 
 def print_yak_frame_count(stack):
-    count = len(stack['profiles'][stack['cur_profile']])
+    profile_count = len(stack['profiles'])
+    frame_count = len(stack['profiles'][stack['cur_profile']])
     profile = ''
-    if (stack['cur_profile'] != 'default'):
+    if (profile_count > 1):
         profile = ' for profile "' + stack['cur_profile'] + '"'
-    if (count):
-        print 'You are currently %i yak %s deep%s' % (count, 'frame' if (count == 1) else 'frames', profile)
+    if (frame_count):
+        print 'You are currently %i yak %s deep%s' % (frame_count, 'frame' if (frame_count == 1) else 'frames', profile)
     else:
         print 'No yaks to shave right now%s!' % profile
 
