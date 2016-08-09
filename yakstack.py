@@ -41,11 +41,15 @@ def save_yak_stack(stack):
     f.close()
 
 
-def add_yak_frame(stack, message):
-    frame = {'text': message, 'timestamp': str(datetime.datetime.now())}
+def add_yak_frame(stack, item):
+    frame = {'text': item, 'timestamp': str(datetime.datetime.now())}
     stack['profiles'][stack['cur_profile']].append(frame)
     save_yak_stack(stack)
     return frame
+
+
+def add_yak_frames(stack, items):
+    return [add_yak_frame(stack, item) for item in items]
 
 
 def switch_profile(stack, profile):
@@ -88,9 +92,12 @@ def print_yaks(stack):
 
 
 parser = argparse.ArgumentParser(description='Yak Stack! Stack your yaks.')
-parser.add_argument('message', nargs='?', default='')
-parser.add_argument('-s', '--shave', action='store_true')
-parser.add_argument('-p', '--profile')
+parser.add_argument('item', nargs='*', default=[],
+                    help='one or more items to add to the yak stack')
+parser.add_argument('-s', '--shave', action='store_true',
+                    help='shave a yak; remove the most recent item from the stack')
+parser.add_argument('-p', '--profile',
+                    help='switch to a different profile to use a different stack')
 args = parser.parse_args()
 
 stack = get_yak_stack()
@@ -101,7 +108,7 @@ if args.profile:
 if args.shave:
     pop_yak_frame(stack)
 
-if args.message:
-    add_yak_frame(stack, args.message)
+if args.item:
+    add_yak_frames(stack, args.item)
 
 print_yaks(stack)
