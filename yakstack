@@ -6,7 +6,9 @@ import argparse
 import datetime
 
 dirname = os.path.expanduser('~/.yakstack')
-path_yak = dirname + '/yakstack.json'
+path_yak = os.path.join(dirname, 'yakstack.json')
+
+VERSION = '1.0.0'
 
 
 def ensure_files():
@@ -98,6 +100,7 @@ parser.add_argument('-s', '--shave', action='count',
                     help='shave a yak; remove the most recent item from the stack')
 parser.add_argument('-p', '--profile',
                     help='switch to a different profile to use a different stack')
+parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION)
 args = parser.parse_args()
 
 stack = get_yak_stack()
