@@ -87,11 +87,10 @@ def print_yaks(stack):
     print_yak_stack(stack)
 
 
-parser = argparse.ArgumentParser(description='Yak Stack!')
+parser = argparse.ArgumentParser(description='Yak Stack! Stack your yaks.')
 parser.add_argument('message', nargs='?', default='')
-parser.add_argument('-l', '--list', action='store_true')
-parser.add_argument('-p', '--pop', action='store_true')
-parser.add_argument('-P', '--profile')
+parser.add_argument('-s', '--shave', action='store_true')
+parser.add_argument('-p', '--profile')
 args = parser.parse_args()
 
 stack = get_yak_stack()
@@ -101,9 +100,7 @@ if args.profile:
 
 if args.message:
     add_yak_frame(stack, args.message)
-elif args.pop:
+elif args.shave:
     pop_yak_frame(stack)
-# elif args.list:
-#     print_yak_stack(stack)
 
 print_yaks(stack)
