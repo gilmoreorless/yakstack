@@ -4,6 +4,7 @@ import os
 import json
 import argparse
 import datetime
+import webbrowser
 
 dirname = os.path.expanduser('~/.yakstack')
 path_yak = os.path.join(dirname, 'yakstack.json')
@@ -101,6 +102,7 @@ parser.add_argument('-s', '--shave', action='count',
 parser.add_argument('-p', '--profile',
                     help='switch to a different profile to use a different stack')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION)
+parser.add_argument('--sax', action='store_true')
 args = parser.parse_args()
 
 stack = get_yak_stack()
@@ -113,5 +115,8 @@ if args.shave > 0:
 
 if args.item:
     add_yak_frames(stack, args.item)
+
+if args.sax:
+    webbrowser.open_new_tab('https://www.youtube.com/watch?v=Zcq_xLi2NGo')
 
 print_yaks(stack)
