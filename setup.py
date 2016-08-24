@@ -31,7 +31,7 @@ setup(
     py_modules=['yakstack'],
     entry_points={
         'console_scripts': [
-            'yakstack=yakstack'
+            'yakstack=yakstack:main'
         ]
     }
 

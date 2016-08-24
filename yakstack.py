@@ -94,29 +94,34 @@ def print_yaks(stack):
     print_yak_stack(stack)
 
 
-parser = argparse.ArgumentParser(description='Yak Stack! Stack your yaks.')
-parser.add_argument('item', nargs='*', default=[],
-                    help='one or more items to add to the yak stack')
-parser.add_argument('-s', '--shave', action='count',
-                    help='shave a yak; remove the most recent item from the stack')
-parser.add_argument('-p', '--profile',
-                    help='switch to a different profile to use a different stack')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION)
-parser.add_argument('--sax', action='store_true')
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser(description='Yak Stack! Stack your yaks.')
+    parser.add_argument('item', nargs='*', default=[],
+                        help='one or more items to add to the yak stack')
+    parser.add_argument('-s', '--shave', action='count',
+                        help='shave a yak; remove the most recent item from the stack')
+    parser.add_argument('-p', '--profile',
+                        help='switch to a different profile to use a different stack')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION)
+    parser.add_argument('--sax', action='store_true')
+    args = parser.parse_args()
 
-stack = get_yak_stack()
+    stack = get_yak_stack()
 
-if args.profile:
-    switch_profile(stack, args.profile)
+    if args.profile:
+        switch_profile(stack, args.profile)
 
-if args.shave > 0:
-    pop_yak_frames(stack, args.shave)
+    if args.shave > 0:
+        pop_yak_frames(stack, args.shave)
 
-if args.item:
-    add_yak_frames(stack, args.item)
+    if args.item:
+        add_yak_frames(stack, args.item)
 
-if args.sax:
-    webbrowser.open_new_tab('https://www.youtube.com/watch?v=Zcq_xLi2NGo')
+    if args.sax:
+        webbrowser.open_new_tab('https://www.youtube.com/watch?v=Zcq_xLi2NGo')
 
-print_yaks(stack)
+    print_yaks(stack)
+
+
+if __name__ == '__main__':
+    main()
