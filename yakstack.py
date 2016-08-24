@@ -9,7 +9,7 @@ import webbrowser
 dirname = os.path.expanduser('~/.yakstack')
 path_yak = os.path.join(dirname, 'yakstack.json')
 
-VERSION = '1.0.0'
+VERSION = '0.1.0'
 
 
 def ensure_files():
