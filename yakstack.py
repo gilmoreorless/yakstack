@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 import os
 import json
 import argparse
@@ -76,22 +78,22 @@ def print_yak_frame_count(stack):
     if (profile_count > 1):
         profile = ' for profile "' + stack['cur_profile'] + '"'
     if (frame_count):
-        print 'You are currently %i yak %s deep%s' % (frame_count, 'frame' if (frame_count == 1) else 'frames', profile)
+        print('You are currently %i yak %s deep%s' % (frame_count, 'frame' if (frame_count == 1) else 'frames', profile))
     else:
-        print 'No yaks to shave right now%s!' % profile
+        print('No yaks to shave right now%s!' % profile)
 
 
 def print_yak_stack(stack):
     spaces = -2
     frames = stack['profiles'][stack['cur_profile']]
     for frame in frames:
-        print '%s%s%s' % (' ' * spaces if (spaces > 0) else '', u'\u2937 ' if (spaces >= 0) else '', frame['text'])
+        print('%s%s%s' % (' ' * spaces if (spaces > 0) else '', u'\u2937 ' if (spaces >= 0) else '', frame['text']))
         spaces += 3
 
 
 def print_yaks(stack):
     print_yak_frame_count(stack)
-    print
+    print()
     print_yak_stack(stack)
 
 
@@ -112,7 +114,7 @@ def main():
     if args.profile:
         switch_profile(stack, args.profile)
 
-    if args.shave > 0:
+    if args.shave is not None and args.shave > 0:
         pop_yak_frames(stack, args.shave)
 
     if args.item:
