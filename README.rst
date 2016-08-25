@@ -19,9 +19,9 @@ This phenomenon is so common that it has become the source of meta-jokes about s
 
 This script helps you keep track of your “yak frames”, or context switches. Got distracted from a task? Add it to the yak stack. Got distracted from the new task? Also add it to the yak stack. Once you’ve finished, shave the yak and go back to the previous task. Originally inspired by this usage of the term:
 
-.. raw:: html
-
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">yak frame - n. a yak shaving stack frame. ex: &quot;I&#39;m currently 3-4 yak frames deep&quot;</p>&mdash; Charlie Somerville (@charliesome) <a href="https://twitter.com/charliesome/status/369371752696012801">August 19, 2013</a></blockquote>
+    | yak frame - n. a yak shaving stack frame. ex: "I'm currently 3-4 yak frames deep"
+    |
+    | — Charlie Somerville (@charliesome) `August 19, 2013 <https://twitter.com/charliesome/status/369371752696012801>`_
 
 ``yakstack`` is not a todo list, or a task management solution. It’s simply a way to keep track of your context switches, so you don’t end up thinking “what was I meant to be doing again?”
 
