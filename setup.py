@@ -1,11 +1,17 @@
 from setuptools import setup
+from codecs import open
+import yakstack
+
+with open('README.rst', encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='yakstack',
-    version='0.1.0',
+    version=yakstack.VERSION,
 
     description='A command-line utility to help you stack your yaks.',
-    keywords='yak stack frame cli tasks',
+    long_description=long_description,
+    keywords=['yak stack', 'yak frame', 'cli', 'tasks'],
 
     url='https://github.com/gilmoreorless/yakstack',
 
