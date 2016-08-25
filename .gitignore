@@ -1,0 +1,10 @@
+# Virtualenv stuff
+.Python
+bin
+include
+lib
+
+# Build artifacts
+*.pyc
+*.egg-info
+dist
