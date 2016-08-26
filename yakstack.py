@@ -11,7 +11,7 @@ import webbrowser
 dirname = os.path.expanduser('~/.yakstack')
 path_yak = os.path.join(dirname, 'yakstack.json')
 
-VERSION = '1.0.0'
+VERSION = '1.1.0'
 DRONE_VERSION = '1.woozy.0.0.fairylands.1472166128.7'
 
 

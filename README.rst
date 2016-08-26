@@ -29,13 +29,13 @@ This script helps you keep track of your “yak frames”, or context switches. 
 Installation
 ------------
 
-``yakstack`` requires **Python 2.7** with `pip <https://pip.pypa.io/en/stable/>`_:
+``yakstack`` requires Python with `pip <https://pip.pypa.io/en/stable/>`_:
 
 .. code:: sh
 
     pip install yakstack
 
-Currently only Python 2.7 is supported; Python 3 compatibility is coming soon.
+Python 2.7 and 3+ are supported.
 
 
 Usage
