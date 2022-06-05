@@ -21,7 +21,7 @@ This script helps you keep track of your “yak frames”, or context switches. 
 
     | yak frame - n. a yak shaving stack frame. ex: "I'm currently 3-4 yak frames deep"
     |
-    | — Charlie Somerville (@charliesome) `August 19, 2013 <https://twitter.com/charliesome/status/369371752696012801>`_
+    | — Charlie Somerville (@charliesome) `August 19, 2013 <https://twitter.com/charliesome/status/369371752696012801>`_ (`archived version <https://web.archive.org/web/20130819233924/https://twitter.com/charliesome>`_)
 
 ``yakstack`` is not a todo list, or a task management solution. It’s simply a way to keep track of your context switches, so you don’t end up thinking “what was I meant to be doing again?”
 

@@ -8,14 +8,28 @@ import argparse
 import datetime
 import webbrowser
 
-dirname = os.path.expanduser('~/.yakstack')
+dirname = os.path.expanduser('~/.config/yakstack')
 path_yak = os.path.join(dirname, 'yakstack.json')
 
-VERSION = '1.1.0'
-DRONE_VERSION = '1.woozy.0.0.fairylands.1472166128.7'
+# The first version of this script used ~/.yakstack, so keep files there if
+# they already exist, for backwards compatibility
+legacy_dirname = os.path.expanduser('~/.yakstack')
+legacy_path_yak = os.path.join(legacy_dirname, 'yakstack.json')
+uses_legacy_path = False
 
+VERSION = '1.1.0'
+# https://dronever.cube-drone.com/
+DRONE_VERSION = '1.obligated.0.14.plowlands.1654407996.7'
+
+
+def file_path():
+    return legacy_path_yak if uses_legacy_path else path_yak
 
 def ensure_files():
+    global uses_legacy_path
+    if os.path.isdir(legacy_dirname) and os.path.isfile(legacy_path_yak):
+        uses_legacy_path = True
+        return
     # Mkdir if it doesn't exist
     if not os.path.isdir(dirname):
         os.makedirs(dirname)
@@ -27,7 +41,7 @@ def ensure_files():
 
 def get_yak_stack():
     ensure_files()
-    f = open(path_yak, 'r')
+    f = open(file_path(), 'r')
     raw_json = f.read()
     f.close()
     stack = json.loads(raw_json)
@@ -41,7 +55,7 @@ def convert_to_profile_format(stack):
 
 
 def save_yak_stack(stack):
-    f = open(path_yak, 'w')
+    f = open(file_path(), 'w')
     json_str = json.dumps(stack, indent=4)
     f.write(json_str)
     f.close()
