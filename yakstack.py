@@ -17,7 +17,7 @@ legacy_dirname = os.path.expanduser('~/.yakstack')
 legacy_path_yak = os.path.join(legacy_dirname, 'yakstack.json')
 uses_legacy_path = False
 
-VERSION = '1.1.0'
+VERSION = '1.2.0'
 # https://dronever.cube-drone.com/
 DRONE_VERSION = '1.obligated.0.14.plowlands.1654407996.7'
 
